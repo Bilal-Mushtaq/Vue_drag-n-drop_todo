@@ -22,8 +22,6 @@ body {
   font-family: "Nunito", sans-serif;
   font-weight: 400;
   color: #2c3e50;
-  background-image: radial-gradient(#75e6da 5%, transparent 5%),
-    radial-gradient(#05445e 2%, transparent 5%);
   background-color: #d4f1f4;
   background-position: 0 0, 50px 50px;
   background-size: 100px 100px;

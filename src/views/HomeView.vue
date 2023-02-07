@@ -7,25 +7,38 @@
     </div>
 
     <div class="state-lists">
-      <div class="drop-zone todo-list" @drop="onDrop($event, 'todo')" @dragover.prevent @dragenter.prevent>
-        <h3>To Do</h3>
+      <div
+        class="drop-zone todo-list"
+        @drop="onDrop($event, 'todo')"
+        @dragover.prevent
+        @dragenter.prevent
+      >
+        <h3>To Do {{ toDoItems.length }}</h3>
         <ul>
-          <TodoListItem v-for="item in toDoItems" :key="item.id" :item="item" @delete-item="deteteItem"
-            @dragstart="startDrag($event, item)" />
+          <TodoListItem
+            v-for="item in toDoItems"
+            :key="item.id"
+            :item="item"
+            @delete-item="deteteItem"
+            @dragstart="startDrag($event, item)"
+          />
         </ul>
       </div>
-      <div class="drop-zone doing-list" @drop="onDrop($event, 'doing')" @dragover.prevent @dragenter.prevent>
-        <h3>Doing</h3>
+      <div
+        class="drop-zone doing-list"
+        @drop="onDrop($event, 'doing')"
+        @dragover.prevent
+        @dragenter.prevent
+      >
+        <h3>completed: {{ doingItems.length }}</h3>
         <ul>
-          <TodoListItem v-for="item in doingItems" :key="item.id" :item="item" @delete-item="deteteItem"
-            @dragstart="startDrag($event, item)" />
-        </ul>
-      </div>
-      <div class="drop-zone done-list" @drop="onDrop($event, 'done')" @dragover.prevent @dragenter.prevent>
-        <h3>Done</h3>
-        <ul>
-          <TodoListItem v-for="item in doneItems" :key="item.id" :item="item" @delete-item="deteteItem"
-            @dragstart="startDrag($event, item)" />
+          <TodoListItem
+            v-for="item in doingItems"
+            :key="item.id"
+            :item="item"
+            @delete-item="deteteItem"
+            @dragstart="startDrag($event, item)"
+          />
         </ul>
       </div>
     </div>
@@ -123,11 +136,6 @@ export default {
           name: "Item 2",
           state: "doing",
         },
-        {
-          id: 3,
-          name: "Item 3",
-          state: "done",
-        },
       ],
     };
   },
@@ -188,9 +196,6 @@ export default {
     },
     doingItems() {
       return this.items.filter((item) => item.state === "doing");
-    },
-    doneItems() {
-      return this.items.filter((item) => item.state === "done");
     },
   },
 };
